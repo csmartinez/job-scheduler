@@ -6,7 +6,9 @@ ShiftCreator is a work shift scheduling software that automatically generates th
 
 Write 'git pull' into the command line before working on this project. After you are done, add the files one at a time or altogether via 'git add .' and then a commit with a message of what updates you did with 'git commit -m "x"'. After that, push your work with 'git push'. Remember you can view
 your changes as you work on the project by dragging and dropping the index file into your browser.
-Refresh to view new changes you made.
+Refresh to view new changes you made. If you stop working on the project and don't push your changes, somebody else will push with their changes that won't include yours. This will cause
+errors, so be sure that the last thing you do when you stop working on the project is a
+successful "git push".
 
 
 ### Stylesheets
