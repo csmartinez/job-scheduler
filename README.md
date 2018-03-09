@@ -20,6 +20,7 @@ https://bootswatch.com/lux/ and https://getbootstrap.com/docs/4.0/getting-starte
 
 * **Carli Martinez** - (https://github.com/csmartinez)
 * **Nick Anderson** - (https://github.com/nhanderson)
+* **Brandon Thomas** 
 
 ## License
 
