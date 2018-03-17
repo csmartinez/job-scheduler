@@ -19,8 +19,9 @@ https://bootswatch.com/lux/ and https://getbootstrap.com/docs/4.0/getting-starte
 ## Authors
 
 * **Carli Martinez** - (https://github.com/csmartinez)
-* **Nick Anderson** - (https://github.com/nhanderson)
-* **Brandon Thomas** 
+* **Nick Anderson** - (https://github.com/nhanderson & https://github.com/nicksspleen)
+* **Brandon Thomas** - (https://github.com/somedemon)
+* **Ryan Wallace** - (https://github.com/rdw82)
 
 ## License
 
