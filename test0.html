@@ -1,0 +1,39 @@
+<html>
+<head>
+<script src="shiftneed.js"></script>
+<script src="needlist.js"></script>
+<script>
+
+
+// var SizeEnum = {
+//   SMALL: 1,
+//   MEDIUM: 2,
+//   LARGE: 3,
+// };
+
+  var availMonday = true;
+
+  var total = endTime - openHour;
+  var numOfShifts = parseInt(total/8);
+
+  var needList = [];
+
+  for (i = 0; i < numOfShifts; i++) {
+    let newShift = new ShiftNeed = (dayofWeek, openHour + (8*i), openHour + (8*(i+1));
+    needList.Append(newShift);
+  }
+
+  if (toal%8 != 0) {
+    let newShift = new ShiftNeed = (dayofWeek, closeHour - (toal%8), closeHour;
+    needList.Append(newShift);
+  }
+
+
+
+</script>
+</head>
+<body>
+    <button type="button" href="#" id="filldetails" onclick="test.showTime();">Fill Details</button>
+    <div id="container"/>
+</body>
+</html>
