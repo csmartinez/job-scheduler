@@ -153,15 +153,13 @@ function submit() {
       let newShift = new ShiftNeed(day, closeHour - (total%8), closeHour);
       needList.push(newShift);
     }
-
   }
-
   // Test for shift creation
   // for (i=0; i < needList.length; i++) {
   //   alert(needList[i].getDayOfWeek() + " " + needList[i].getStartTime() + " " + needList[i].getEndTime());
   // }
 
-  // Find total number of employees
+  // Iterates through employees and stores information in employeeList
   var numOfEmployee = 0
   var employeeList = []
   while (document.getElementById("employee" + numOfEmployee)) {
@@ -196,6 +194,8 @@ function submit() {
   // for (i=0; i < numOfEmployee; i++) {
   //   alert(employeeList[i].getName() + " " + employeeList[i].getAvail());
   // }
+
+
 }
 
 class ShiftNeed {
@@ -244,5 +244,16 @@ class Employee {
   getAvail() {
     return this.availList;
   }
+}
 
+class Shift extends ShiftNeed {
+
+  constructor(dayOfWeek, startTime, endTime, employee) {
+    super(dayOfWeek, startTime, endTime);
+    this.employee = employee;
+  }
+
+  getEmployee() {
+    return this.employee;
+  }
 }
