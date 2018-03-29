@@ -5,7 +5,7 @@
 	<script type="text/javascript">
 	    function addFields(){
 	    // Number of inputs to create
-	    var number = document.getElementById("employeeAmount").value;
+
 			var number = document.getElementById("employeeAmount").value;
 	    // Container <div> where dynamic content will be placed
 	    var container = document.getElementById("container");
@@ -78,6 +78,7 @@
 					input.checked = true;
 	        container.appendChild(input);
 					container.appendChild(document.createTextNode(" Sun "));
+
 	        // Append a line break
 	        container.appendChild(document.createElement("br"));
 					container.appendChild(document.createElement("br"));
@@ -92,7 +93,21 @@
 					container.appendChild(document.createElement("br"));
 	}
 		function submit() {
-			alert("Beware the Ides of March \n - Shakespear");
+			var openHour = document.getElementById("openHour").value;
+			var openMinutes = document.getElementById("openMinutes").value;
+			var closeHour = document.getElementById("closeHour").value;
+			var closeMinutes = document.getElementById("closeMinutes").value;
+			//Check Boxes
+			var availMonday = document.getElementById("Monday").value;
+			var availTuesday = document.getElementById("Tuesday").value;
+			var availWednesday = document.getElementById("Wednesday").value;
+			var availThursday = document.getElementById("Thursday").value;
+			var availFriday = document.getElementById("Friday").value;
+			var availSaturday = document.getElementById("Saturday").value;
+			var availSunday = document.getElementById("Sunday").value;
+
+			alert("Opens at" + String(openHour) + "!");
+
 		}
 	</script>
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
@@ -152,43 +167,43 @@
 						Business Days Open: <br><br>
 			      <div class="form-check">
 			        <label class="form-check-label">
-			          <input class="form-check-input" type="checkbox" value="" checked="">
+			          <input class="form-check-input" type="checkbox" value="" checked="" id="Monday">
 			          Monday
 			        </label>
 			      </div>
 			      <div class="form-check disabled">
 			        <label class="form-check-label">
-			          <input class="form-check-input" type="checkbox" value="" checked="">
+			          <input class="form-check-input" type="checkbox" value="" checked="" id="Tuesday">
 			          Tuesday
 			        </label>
 			      </div>
 						<div class="form-check disabled">
 			        <label class="form-check-label">
-			          <input class="form-check-input" type="checkbox" value="" checked="">
+			          <input class="form-check-input" type="checkbox" value="" checked="" id="Wednesday">
 			          Wednesday
 			        </label>
 			      </div>
 						<div class="form-check disabled">
 			        <label class="form-check-label">
-			          <input class="form-check-input" type="checkbox" value="" checked="">
+			          <input class="form-check-input" type="checkbox" value="" checked="" id="Thursday">
 			          Thursday
 			        </label>
 			      </div>
 						<div class="form-check disabled">
 			        <label class="form-check-label">
-			          <input class="form-check-input" type="checkbox" value="" checked="">
+			          <input class="form-check-input" type="checkbox" value="" checked="" id="Friday">
 			          Friday
 			        </label>
 			      </div>
 						<div class="form-check disabled">
 			        <label class="form-check-label">
-			          <input class="form-check-input" type="checkbox" value="" checked="">
+			          <input class="form-check-input" type="checkbox" value="" checked="" id="Saturday">
 			          Saturday
 			        </label>
 			      </div>
 						<div class="form-check disabled">
 			        <label class="form-check-label">
-			          <input class="form-check-input" type="checkbox" value="" checked="">
+			          <input class="form-check-input" type="checkbox" value="" checked="" id="Sunday">
 			          Sunday
 			        </label>
 			      </div>
