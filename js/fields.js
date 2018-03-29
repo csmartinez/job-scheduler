@@ -16,6 +16,7 @@ for (i=0;i<number;i++){
     var input = document.createElement("input");
     input.type = "text";
     input.name = "employee" + i;
+    input.id = "employee" + i;
     container.appendChild(input);
     // Append a line break
     container.appendChild(document.createElement("br"));
@@ -28,6 +29,7 @@ for (i=0;i<number;i++){
     var input = document.createElement("input");
     input.type = "checkbox";
     input.name = "monAvail" + i;
+    input.id = "monAvail" + i;
     input.checked = true;
     container.appendChild(input);
     container.appendChild(document.createTextNode(" Mon "));
@@ -35,6 +37,7 @@ for (i=0;i<number;i++){
     var input = document.createElement("input");
     input.type = "checkbox";
     input.name = "tuesAvail" + i;
+    input.id = "tuesAvail" + i;
     input.checked = true;
     container.appendChild(input);
     container.appendChild(document.createTextNode(" Tue "));
@@ -42,6 +45,7 @@ for (i=0;i<number;i++){
     var input = document.createElement("input");
     input.type = "checkbox";
     input.name = "wedAvail" + i;
+    input.id = "wedAvail" + i;
     input.checked = true;
     container.appendChild(input);
     container.appendChild(document.createTextNode(" Wed "));
@@ -49,6 +53,7 @@ for (i=0;i<number;i++){
     var input = document.createElement("input");
     input.type = "checkbox";
     input.name = "thurAvail" + i;
+    input.id = "thurAvail" + i;
     input.checked = true;
     container.appendChild(input);
     container.appendChild(document.createTextNode(" Thur "));
@@ -56,6 +61,7 @@ for (i=0;i<number;i++){
     var input = document.createElement("input");
     input.type = "checkbox";
     input.name = "friAvail" + i;
+    input.id = "friAvail" + i;
     input.checked = true;
     container.appendChild(input);
     container.appendChild(document.createTextNode(" Fri "));
@@ -63,6 +69,7 @@ for (i=0;i<number;i++){
     var input = document.createElement("input");
     input.type = "checkbox";
     input.name = "satAvail" + i;
+    input.id = "satAvail" + i;
     input.checked = true;
     container.appendChild(input);
     container.appendChild(document.createTextNode(" Sat "));
@@ -70,6 +77,7 @@ for (i=0;i<number;i++){
     var input = document.createElement("input");
     input.type = "checkbox";
     input.name = "sunAvail" + i;
+    input.id = "sunAvail" + i;
     input.checked = true;
     container.appendChild(input);
     container.appendChild(document.createTextNode(" Sun "));
@@ -102,6 +110,7 @@ function submit() {
   var availSaturday = document.getElementById("Saturday").checked;
   var availSunday = document.getElementById("Sunday").checked;
 
+  // Make a list of days open to iterate through
   var openDays = [];
   if (availMonday) {
     openDays.push("Monday");
@@ -125,17 +134,21 @@ function submit() {
     openDays.push("Sunday");
   }
 
+  // Finds total hours and divdes by 8 to find number of full shifts in a day
   var needList = [];
   var total = closeHour - openHour;
   var numOfShifts = parseInt(total/8);
 
+  // Iterates through all days store is open
   for (i=0; i < openDays.length; i++) {
+    // Creates ShiftNeed for all full length shifts
     var day = openDays[i];
     for (j = 0; j < numOfShifts; j++) {
       let newShift = new ShiftNeed(day, openHour + (8*j), openHour + (8*(j+1)));
       needList.push(newShift);
     }
 
+    // Creates any remainder shifts
     if (total%8 != 0) {
       let newShift = new ShiftNeed(day, closeHour - (total%8), closeHour);
       needList.push(newShift);
@@ -143,9 +156,46 @@ function submit() {
 
   }
 
-  for (i=0; i < needList.length; i++) {
-    alert(needList[i].getDayOfWeek() + " " + needList[i].getStartTime() + " " + needList[i].getEndTime());
+  // Test for shift creation
+  // for (i=0; i < needList.length; i++) {
+  //   alert(needList[i].getDayOfWeek() + " " + needList[i].getStartTime() + " " + needList[i].getEndTime());
+  // }
+
+  // Find total number of employees
+  var numOfEmployee = 0
+  var employeeList = []
+  while (document.getElementById("employee" + numOfEmployee)) {
+    tempName = document.getElementById("employee" + numOfEmployee).value;
+    tempAvail = [];
+    if (document.getElementById("monAvail" + numOfEmployee).checked) {
+      tempAvail.push("Monday");
+    }
+    if (document.getElementById("tuesAvail" + numOfEmployee).checked) {
+      tempAvail.push("Tuesday");
+    }
+    if (document.getElementById("wedAvail" + numOfEmployee).checked) {
+      tempAvail.push("Wednesday");
+    }
+    if (document.getElementById("thurAvail" + numOfEmployee).checked) {
+      tempAvail.push("Thursday");
+    }
+    if (document.getElementById("friAvail" + numOfEmployee).checked) {
+      tempAvail.push("Friday");
+    }
+    if (document.getElementById("satAvail" + numOfEmployee).checked) {
+      tempAvail.push("Saturday");
+    }
+    if (document.getElementById("sunAvail" + numOfEmployee).checked) {
+      tempAvail.push("Sunday");
+    }
+    let newEmployee = new Employee(tempName, tempAvail);
+    employeeList.push(newEmployee)
+    numOfEmployee++;
   }
+  // Test for employee creation
+  // for (i=0; i < numOfEmployee; i++) {
+  //   alert(employeeList[i].getName() + " " + employeeList[i].getAvail());
+  // }
 }
 
 class ShiftNeed {
@@ -179,7 +229,20 @@ class ShiftNeed {
   setEndTime(newEndTime) {
     this.endTime = newEndTime;
   }
-
 // Qualifications go here
+}
+
+class Employee {
+
+  constructor(name, availList) {
+    this.name = name;
+    this.availList = availList;
+  }
+  getName() {
+    return this.name;
+  }
+  getAvail() {
+    return this.availList;
+  }
 
 }
