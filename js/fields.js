@@ -195,18 +195,24 @@ function submit() {
   //   alert(employeeList[i].getName() + " " + employeeList[i].getAvail());
   // }
 
+  // Create a schedule which is a list of filled Shifts
   var schedule = [];
+  // Loops through the needsList for each day
   for(i = 0; i < openDays.length; i++) {
       var tempDay = openDays[i];
+      // Create a temp list of employees to prevent employees from being scheduled
+      // twice in the same day.
       var tempEmployeeList = [];
       for (j = 0; j < employeeList.length; j++ ) {
         tempEmployeeList.push(employeeList[j].getName());
       }
       for (k = 0; k < needList.length; k++) {
         if (tempDay == needList[k].getDayOfWeek()) {
+          // Grab a random employee to filled shift need
           random = Math.floor(Math.random() * tempEmployeeList.length);
           let tempShift = new Shift(needList[k].getDayOfWeek(), needList[k].getStartTime(), needList[k].getEndTime(), tempEmployeeList[random]);
           schedule.push(tempShift);
+          // Remove employee from temp list to prevent working in the same day twice
           tempEmployeeList.splice(random, 1);
         }
       }
@@ -217,6 +223,30 @@ function submit() {
   //   alert(schedule[i].getDayOfWeek() + " " + schedule[i].getStartTime() + " " + schedule[i].getEndTime() + " " + schedule[i].getEmployee());
   // }
 
+  // Hide entry fields
+  var formContainer = document.getElementById("form-container");
+  if (formContainer.style.display === "none") {
+      formContainer.style.display = "block";
+  } else {
+      formContainer.style.display = "none";
+  }
+
+  var scheduleContainer = document.getElementById("schedule-container")
+  for(i = 0; i < openDays.length; i++) {
+    var tempDay = openDays[i];
+    var dayNameElement = document.createElement("h3");
+    var dayNameText = document.createTextNode(openDays[i]);
+    dayNameElement.appendChild(dayNameText);
+    scheduleContainer.appendChild(dayNameElement);
+    for (k = 0; k < schedule.length; k++) {
+      if (tempDay == schedule[k].getDayOfWeek()) {
+        var shiftElement = document.createElement("p");
+        var shiftText = document.createTextNode("Name: " + schedule[k].getEmployee() + " Start Time: " + schedule[k].getStartTime() + " End Time: " + schedule[k].getEndTime());
+        shiftElement.appendChild(shiftText);
+        scheduleContainer.appendChild(shiftElement);
+      }
+    }
+  }
 }
 
 
