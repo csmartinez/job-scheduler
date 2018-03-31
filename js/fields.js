@@ -231,21 +231,24 @@ function submit() {
       formContainer.style.display = "none";
   }
 
-  var scheduleContainer = document.getElementById("schedule-container")
+  // Displays basic text version of schedule
+  var scheduleContainer = document.getElementById("schedule-container");
   for(i = 0; i < openDays.length; i++) {
     var tempDay = openDays[i];
     var dayNameElement = document.createElement("h3");
     var dayNameText = document.createTextNode(openDays[i]);
     dayNameElement.appendChild(dayNameText);
     scheduleContainer.appendChild(dayNameElement);
+    scheduleContainer.appendChild(document.createElement("br"));
     for (k = 0; k < schedule.length; k++) {
       if (tempDay == schedule[k].getDayOfWeek()) {
-        var shiftElement = document.createElement("p");
-        var shiftText = document.createTextNode("Name: " + schedule[k].getEmployee() + " Start Time: " + schedule[k].getStartTime() + " End Time: " + schedule[k].getEndTime());
-        shiftElement.appendChild(shiftText);
-        scheduleContainer.appendChild(shiftElement);
+         var shiftElement = document.createElement("p");
+         var shiftText = document.createTextNode("Name: " + schedule[k].getEmployee() + " / Start Time: " + schedule[k].getStartTime() + " / End Time: " + schedule[k].getEndTime());
+         shiftElement.appendChild(shiftText);
+         scheduleContainer.appendChild(shiftElement);
       }
     }
+    scheduleContainer.appendChild(document.createElement("br"));
   }
 }
 
