@@ -195,8 +195,31 @@ function submit() {
   //   alert(employeeList[i].getName() + " " + employeeList[i].getAvail());
   // }
 
+  var schedule = [];
+  for(i = 0; i < openDays.length; i++) {
+      var tempDay = openDays[i];
+      var tempEmployeeList = [];
+      for (j = 0; j < employeeList.length; j++ ) {
+        tempEmployeeList.push(employeeList[j].getName());
+      }
+      for (k = 0; k < needList.length; k++) {
+        if (tempDay == needList[k].getDayOfWeek()) {
+          random = Math.floor(Math.random() * tempEmployeeList.length);
+          let tempShift = new Shift(needList[k].getDayOfWeek(), needList[k].getStartTime(), needList[k].getEndTime(), tempEmployeeList[random]);
+          schedule.push(tempShift);
+          tempEmployeeList.splice(random, 1);
+        }
+      }
+    }
+
+  // Test for schedule creation
+  // for (i=0; i < needList.length; i++) {
+  //   alert(schedule[i].getDayOfWeek() + " " + schedule[i].getStartTime() + " " + schedule[i].getEndTime() + " " + schedule[i].getEmployee());
+  // }
 
 }
+
+
 
 class ShiftNeed {
 
