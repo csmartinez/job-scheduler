@@ -313,3 +313,20 @@ class Shift extends ShiftNeed {
     return this.employee;
   }
 }
+
+function runTest1() {
+   let newEmployee = new Employee("Eddy", ["Monday", "Tuesday"]);
+   alert("UNIT TEST 1\ngetName(): " + newEmployee.getName() + " \ngetAvail(): " + newEmployee.getAvail());
+}
+
+function runTest2() {
+  let newShift = new Shift("Monday", 8, 12, "Frank");
+  alert("UNIT TEST 2\ngetEmployee(): " + newShift.getEmployee());
+}
+
+function runTest3() {
+  let newShiftNeed = new ShiftNeed("Friday", 12, 5);
+  alert("UNIT TEST 3\ngetStartTime(): " + newShiftNeed.getStartTime()
+        + "\ngetEndTime(): " + newShiftNeed.getEndTime()
+        + "\ngetDayOfWeek(): " + newShiftNeed.getDayOfWeek());
+}
