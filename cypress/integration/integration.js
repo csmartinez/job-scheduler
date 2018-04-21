@@ -62,7 +62,7 @@ describe('Moving between entering employee information to schedule', function() 
   })
 })
 
-describe('Test employee list is being populated', function() {
+describe('Test employee list is being populated and used to assign employees', function() {
   it('Load page', function() {
     cy.visit('https://csmartinez.github.io/job-scheduler/Form.html')
   })
@@ -87,7 +87,69 @@ describe('Test employee list is being populated', function() {
       .should('contain', 'Name: nick')
   })
   it('Verify second employee found', function() {
-    cy.contains('nick')
+    cy.contains('brandon')
       .should('contain', 'Name: brandon')
+  })
+})
+
+describe('Test week list is being populated and correctly used to create shifts', function() {
+  it('Load page', function() {
+    cy.visit('https://csmartinez.github.io/job-scheduler/Form.html')
+  })
+  it('Uncheck Monday', function() {
+    cy.get('#Monday')
+      .uncheck()
+
+    cy.get('#employeeAmount')
+      .type('1')
+
+    cy.get('#filldetails')
+      .click()
+
+    cy.get('#employee0')
+      .type('nick')
+
+    cy.get('.btn-primary').not('#filldetails')
+      .click()
+  })
+  it('Verify Monday not in schedule', function() {
+    cy.contains('Monday').not()
+  })
+})
+
+describe('Verfiy hours are set correctly and dvided correctly', function() {
+  it('Load page', function() {
+    cy.visit('https://csmartinez.github.io/job-scheduler/Form.html')
+  })
+  it('Change hours', function() {
+    cy.get('#openHour')
+      .select('5')
+
+    cy.get('#closeHour')
+      .select('10')
+
+    cy.get('#employeeAmount')
+      .type('1')
+
+    cy.get('#filldetails')
+      .click()
+
+    cy.get('#employee0')
+      .type('nick')
+
+    cy.get('.btn-primary').not('#filldetails')
+      .click()
+  })
+  it('Verify start and times of first shift', function() {
+    cy.contains('13')
+    .should('contain', 'Name: nick / Start Time: 5 / End Time: 13')
+  })
+  it('Verify start and times of second shift', function() {
+    cy.contains('21')
+    .should('contain', 'Name: undefined / Start Time: 13 / End Time: 21')
+  })
+  it('Verify start and times of third shift', function() {
+    cy.contains('22')
+    .should('contain', 'Name: undefined / Start Time: 21 / End Time: 22')
   })
 })
