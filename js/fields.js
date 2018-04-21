@@ -316,17 +316,63 @@ class Shift extends ShiftNeed {
 
 function runTest1() {
    let newEmployee = new Employee("Eddy", ["Monday", "Tuesday"]);
-   alert("UNIT TEST 1\ngetName(): " + newEmployee.getName() + " \ngetAvail(): " + newEmployee.getAvail());
+   var result1;
+   var result2;
+
+   if(newEmployee.getName() == "Eddy") {
+     result1 = " >>PASS";
+   } else {
+     result1 = " >>FAIL";
+   }
+
+   if(newEmployee.getAvail() == "Monday,Tuesday") {
+     result2 = " >>PASS";
+   } else {
+     result2 = " >>FAIL";
+   }
+
+   alert("UNIT TEST 1\ngetName(): " + newEmployee.getName()
+   + result1 + "\ngetAvail(): " + newEmployee.getAvail() + result2);
 }
 
 function runTest2() {
+  var result1;
   let newShift = new Shift("Monday", 8, 12, "Frank");
-  alert("UNIT TEST 2\ngetEmployee(): " + newShift.getEmployee());
+
+  if(newShift.getEmployee() == "Frank") {
+    result1 = " >>PASS";
+  } else {
+    result1 = " >>FAIL";
+  }
+
+  alert("UNIT TEST 2\ngetEmployee(): " + newShift.getEmployee() + result1);
 }
 
 function runTest3() {
+  var result1;
+  var result2;
+  var result3;
   let newShiftNeed = new ShiftNeed("Friday", 12, 5);
-  alert("UNIT TEST 3\ngetStartTime(): " + newShiftNeed.getStartTime()
-        + "\ngetEndTime(): " + newShiftNeed.getEndTime()
-        + "\ngetDayOfWeek(): " + newShiftNeed.getDayOfWeek());
+
+  if(newShiftNeed.getStartTime() == 12) {
+    result1 = " >>PASS";
+  } else {
+    result1 = " >>FAIL";
+  }
+
+  if(newShiftNeed.getEndTime() == 5) {
+    result2 = " >>PASS";
+  } else {
+    result2 = " >>FAIL";
+  }
+
+  if(newShiftNeed.getDayOfWeek() == "Friday") {
+    result3 = " >>PASS";
+  } else {
+    result3 = " >>FAIL";
+  }
+
+  alert("UNIT TEST 3\ngetStartTime(): " + newShiftNeed.getStartTime() + result1
+        + "\ngetEndTime(): " + newShiftNeed.getEndTime() + result2
+        + "\ngetDayOfWeek(): " + newShiftNeed.getDayOfWeek() + result3);
 }
