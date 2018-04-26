@@ -101,6 +101,7 @@ function submit() {
   var openMinutes = document.getElementById("openMinutes").value;
   var closeHour = parseInt(document.getElementById("closeHour").value) + 12;
   var closeMinutes = document.getElementById("closeMinutes").value;
+  var employeePerShift = document.getElementById("employeePerShift").value;
   //Check Boxes
   var availMonday = document.getElementById("Monday").checked;
   var availTuesday = document.getElementById("Tuesday").checked;
@@ -144,14 +145,18 @@ function submit() {
     // Creates ShiftNeed for all full length shifts
     var day = openDays[i];
     for (j = 0; j < numOfShifts; j++) {
-      let newShift = new ShiftNeed(day, openHour + (8*j), openHour + (8*(j+1)));
-      needList.push(newShift);
+      for (k = 0; k < employeePerShift; k++) {
+        let newShift = new ShiftNeed(day, openHour + (8*j), openHour + (8*(j+1)));
+        needList.push(newShift);
+      }
     }
 
     // Creates any remainder shifts
     if (total%8 != 0) {
-      let newShift = new ShiftNeed(day, closeHour - (total%8), closeHour);
-      needList.push(newShift);
+      for (k = 0; k < employeePerShift; k++) {
+        let newShift = new ShiftNeed(day, closeHour - (total%8), closeHour);
+        needList.push(newShift);
+      }
     }
   }
   // Test for shift creation
