@@ -41,13 +41,16 @@ describe('Test adding single and multiple employees per shift', function() {
       .click()
   })
   it('Verify Monday Shift 2 in schedule', function() {
-    cy.get('#Mondayshift1')
+    cy.get('#MondayShift1')
   })
 
-  it('Verify Monday Shift 3 not in schedule', function() {
-    cy.get('#Mondayshift2').not()
+  it('Verify next shift is a Tuesday shift', function() {
+    cy.get('#TuesdayShift2')
   })
 
+  it('Load page', function() {
+    cy.visit('https://csmartinez.github.io/job-scheduler/Form.html')
+  })
   it('Testing multiple employees per shift', function() {
     cy.get('#employeePerShift')
       .type('2')
@@ -80,10 +83,10 @@ describe('Test adding single and multiple employees per shift', function() {
       .click()
   })
   it('Verify Monday Shift 2 in schedule', function() {
-    cy.get('#Mondayshift1')
+    cy.get('#MondayShift1')
   })
 
   it('Verify Monday Shift 3 also in schedule', function() {
-    cy.get('#Mondayshift2')
+    cy.get('#MondayShift2')
   })
 })

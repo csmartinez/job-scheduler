@@ -201,7 +201,7 @@ function submit() {
   // }
 
   // Create a schedule which is a list of filled Shifts
-  var schedule = [];
+
   // Loops through the needsList for each day
   for(i = 0; i < openDays.length; i++) {
       var tempDay = openDays[i];
@@ -251,7 +251,6 @@ function submit() {
          var shiftElement = document.createElement("p");
          var shiftText = document.createTextNode("Name: " + schedule[k].getEmployee() + " / Start Time: " + schedule[k].getStartTime() + " / End Time: " + schedule[k].getEndTime());
          shiftElement.appendChild(shiftText);
-         shiftElement.setAttribute = ("id", schedule[k].getDayOfWeek() + 'shift' + count);
          shiftElement.id = schedule[k].getDayOfWeek() + 'Shift' + count;
          scheduleContainer.appendChild(shiftElement);
          count = count + 1;
@@ -385,3 +384,5 @@ function runTest3() {
         + "\ngetEndTime(): " + newShiftNeed.getEndTime() + result2
         + "\ngetDayOfWeek(): " + newShiftNeed.getDayOfWeek() + result3);
 }
+
+var schedule = [];
