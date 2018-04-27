@@ -238,6 +238,7 @@ function submit() {
 
   // Displays basic text version of schedule
   var scheduleContainer = document.getElementById("schedule-container");
+  var count = 0;
   for(i = 0; i < openDays.length; i++) {
     var tempDay = openDays[i];
     var dayNameElement = document.createElement("h3");
@@ -250,7 +251,10 @@ function submit() {
          var shiftElement = document.createElement("p");
          var shiftText = document.createTextNode("Name: " + schedule[k].getEmployee() + " / Start Time: " + schedule[k].getStartTime() + " / End Time: " + schedule[k].getEndTime());
          shiftElement.appendChild(shiftText);
+         shiftElement.setAttribute = ("id", schedule[k].getDayOfWeek() + 'shift' + count);
+         shiftElement.id = schedule[k].getDayOfWeek() + 'Shift' + count;
          scheduleContainer.appendChild(shiftElement);
+         count = count + 1;
       }
     }
     scheduleContainer.appendChild(document.createElement("br"));
