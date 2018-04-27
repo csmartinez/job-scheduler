@@ -29,6 +29,9 @@ describe('Moving between entering hours to entering employee information', funct
   it('Enter number of employees', function() {
     cy.get('#employeeAmount')
       .type('4')
+
+    cy.get('#employeePerShift')
+      .type('1')
   })
   it('Verify employees added', function() {
     cy.get('#filldetails')
@@ -45,6 +48,9 @@ describe('Moving between entering employee information to schedule', function() 
   })
   it('Enter employee', function() {
     cy.get('#employeeAmount')
+      .type('1')
+
+    cy.get('#employeePerShift')
       .type('1')
 
     cy.get('#filldetails')
@@ -69,6 +75,9 @@ describe('Test employee list is being populated and used to assign employees', f
   it('Enter multiple employees', function() {
     cy.get('#employeeAmount')
       .type('2')
+
+    cy.get('#employeePerShift')
+      .type('1')
 
     cy.get('#filldetails')
       .click()
@@ -103,6 +112,9 @@ describe('Test week list is being populated and correctly used to create shifts'
     cy.get('#employeeAmount')
       .type('1')
 
+    cy.get('#employeePerShift')
+      .type('1')
+
     cy.get('#filldetails')
       .click()
 
@@ -129,6 +141,9 @@ describe('Verfiy hours are set correctly and dvided correctly', function() {
       .select('10')
 
     cy.get('#employeeAmount')
+      .type('1')
+
+    cy.get('#employeePerShift')
       .type('1')
 
     cy.get('#filldetails')
