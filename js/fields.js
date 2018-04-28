@@ -240,6 +240,8 @@ function submit() {
   // Displays basic text version of schedule
   var scheduleContainer = document.getElementById("schedule-container");
   var count = 0;
+  scheduleContainer.appendChild(document.createElement("br"));
+  scheduleContainer.appendChild(document.createElement("br"));
 
   for(i = 0; i < 7; i++) {
     var tempDay = openDays[i];
@@ -248,33 +250,40 @@ function submit() {
     // dayNameElement.appendChild(dayNameText);
     // scheduleContainer.appendChild(dayNameElement);
     // scheduleContainer.appendChild(document.createElement("br"));
-    var sty = document.createElement("div");
-    sty.style.width = "14.25%";
-    sty.style.cssFloat = "left";
-
+    var weekCalendar = document.createElement("div");
+    weekCalendar.style.width = "14.25%";
+    weekCalendar.style.cssFloat = "left";
+    weekCalendar.style.marginBottom = "40px";
+    var h3 = document.createElement("h5");
     var test = document.createTextNode(openDays[i])
-    sty.appendChild(test);
-    sty.appendChild(document.createElement("br"));
-    sty.appendChild(document.createElement("br"));
+    h3.appendChild(test);
+    weekCalendar.appendChild(h3);
+    weekCalendar.appendChild(document.createElement("br"));
+    weekCalendar.appendChild(document.createElement("br"));
 
     for (k = 0; k < schedule.length; k++) {
       if (tempDay == schedule[k].getDayOfWeek()) {
-
-
          var shiftElement = document.createElement("p");
          shiftElement.style.width = "100px;";
-         var shiftText = document.createTextNode(schedule[k].getEmployee() + '  (' + schedule[k].getStartTime() + " - " + schedule[k].getEndTime() + ')');
-         sty.appendChild(shiftText);
+         shiftElement.style.border = "1px solid gray";
+         var tempStartTime = schedule[k].getStartTime();
+         var tempEndTime = schedule[k].getEndTime();
+         if(tempStartTime > 12) {
+           tempStartTime = tempStartTime - 12;
+         }
+         if(tempEndTime > 12) {
+           tempEndTime = tempEndTime - 12;
+         }
+         var shiftText = document.createTextNode(schedule[k].getEmployee() + '  (' + tempStartTime + "am - " + tempEndTime + 'pm)');
+         weekCalendar.appendChild(shiftText);
          shiftElement.id = schedule[k].getDayOfWeek() + 'Shift' + count;
-         sty.appendChild(shiftElement);
+         weekCalendar.appendChild(shiftElement);
          count = count + 1;
 
       }
     }
-    scheduleContainer.appendChild(sty);
+    scheduleContainer.appendChild(weekCalendar);
   }
-
-  scheduleContainer.insertAdjacentHTML('afterend', '</table>');
 
   var button = document.createElement("input");
   button.type = "button";
