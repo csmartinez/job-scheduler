@@ -239,25 +239,38 @@ function submit() {
   // Displays basic text version of schedule
   var scheduleContainer = document.getElementById("schedule-container");
   var count = 0;
-  for(i = 0; i < openDays.length; i++) {
+
+  for(i = 0; i < 7; i++) {
     var tempDay = openDays[i];
-    var dayNameElement = document.createElement("h3");
-    var dayNameText = document.createTextNode(openDays[i]);
-    dayNameElement.appendChild(dayNameText);
-    scheduleContainer.appendChild(dayNameElement);
-    scheduleContainer.appendChild(document.createElement("br"));
+    // var dayNameElement = document.createElement("h3");
+    // var dayNameText = document.createTextNode(openDays[i]);
+    // dayNameElement.appendChild(dayNameText);
+    // scheduleContainer.appendChild(dayNameElement);
+    // scheduleContainer.appendChild(document.createElement("br"));
+    var sty = document.createElement("div");
+    sty.style.width = "14.25%";
+    sty.style.cssFloat = "left";
+    
+
     for (k = 0; k < schedule.length; k++) {
       if (tempDay == schedule[k].getDayOfWeek()) {
+
+
          var shiftElement = document.createElement("p");
-         var shiftText = document.createTextNode("Name: " + schedule[k].getEmployee() + " / Start Time: " + schedule[k].getStartTime() + " / End Time: " + schedule[k].getEndTime());
-         shiftElement.appendChild(shiftText);
+         shiftElement.style.width = "100px;";
+         var shiftText = document.createTextNode(schedule[k].getEmployee() + '  (' + schedule[k].getStartTime() + " - " + schedule[k].getEndTime() + ')');
+         sty.appendChild(shiftText);
          shiftElement.id = schedule[k].getDayOfWeek() + 'Shift' + count;
-         scheduleContainer.appendChild(shiftElement);
+         sty.appendChild(shiftElement);
          count = count + 1;
+
       }
     }
-    scheduleContainer.appendChild(document.createElement("br"));
+    scheduleContainer.appendChild(sty);
   }
+
+  scheduleContainer.insertAdjacentHTML('afterend', '</table>');
+
   var button = document.createElement("input");
   button.type = "button";
   button.value = "BACK";
