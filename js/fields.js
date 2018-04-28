@@ -231,7 +231,7 @@ function submit() {
   // Hide entry fields
   var formContainer = document.getElementById("form-container");
   if (formContainer.style.display === "none") {
-      formContainer.style.display = "block";
+      formContainer.style.display = "none";
   } else {
       formContainer.style.display = "none";
   }
@@ -258,9 +258,48 @@ function submit() {
     }
     scheduleContainer.appendChild(document.createElement("br"));
   }
+  var button = document.createElement("input");
+  button.type = "button";
+  button.value = "BACK";
+  button.className = "btn btn-primary";
+  button.onclick = function() {back()}; // ADD FUNCTION HERE
+  scheduleContainer.appendChild(button);
+  scheduleContainer.appendChild(document.createElement("br"));
+  scheduleContainer.appendChild(document.createElement("br"));
+
+  var button2 = document.createElement("input");
+  button2.type = "button";
+  button2.value = "GENERATE NEW";
+  button2.className = "btn btn-primary";
+  button2.onclick = function() {regen()}; // ADD FUNCTION HERE
+  button2.id = 'regenerate';
+  scheduleContainer.appendChild(button2);
+  scheduleContainer.appendChild(document.createElement("br"));
+  scheduleContainer.appendChild(document.createElement("br"));
 }
 
+function back(){
+  schedule = [];
+  var scheduleContainer = document.getElementById("schedule-container");
+  while (scheduleContainer.hasChildNodes()) {
+    scheduleContainer.removeChild(scheduleContainer.firstChild);
+  }
+  var formContainer = document.getElementById("form-container");
+  if (formContainer.style.display === "none") {
+      formContainer.style.display = "unset";
+  } else {
+      formContainer.style.display = "unset";
+  }
+}
 
+function regen(){
+  schedule = [];
+  var scheduleContainer = document.getElementById("schedule-container");
+  while (scheduleContainer.hasChildNodes()) {
+    scheduleContainer.removeChild(scheduleContainer.firstChild);
+  }
+  submit();
+}
 
 class ShiftNeed {
 
