@@ -251,7 +251,11 @@ function submit() {
     var sty = document.createElement("div");
     sty.style.width = "14.25%";
     sty.style.cssFloat = "left";
-    
+
+    var test = document.createTextNode(openDays[i])
+    sty.appendChild(test);
+    sty.appendChild(document.createElement("br"));
+    sty.appendChild(document.createElement("br"));
 
     for (k = 0; k < schedule.length; k++) {
       if (tempDay == schedule[k].getDayOfWeek()) {
