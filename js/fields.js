@@ -255,8 +255,8 @@ function submit() {
     weekCalendar.style.cssFloat = "left";
     weekCalendar.style.marginBottom = "40px";
     var h3 = document.createElement("h5");
-    var test = document.createTextNode(openDays[i])
-    h3.appendChild(test);
+    var weekDay = document.createTextNode(openDays[i])
+    h3.appendChild(weekDay);
     weekCalendar.appendChild(h3);
     weekCalendar.appendChild(document.createElement("br"));
     weekCalendar.appendChild(document.createElement("br"));
