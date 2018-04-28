@@ -7,6 +7,7 @@ Main Form HTML
 <head>
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 	<link href="https://bootswatch.com/4/lux/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" rel="stylesheet" type="text/css">
 	<script src="js/bootstrap.js"></script>
 	<script src="js/fields.js"></script>
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
@@ -23,6 +24,8 @@ Main Form HTML
 			  <fieldset>
 			    <legend>Create a Work Schedule</legend>
 			    <div class="form-group" style="float: left; width: 24%; margin-right: 1%;">
+
+
 			      <label for="openHour">Business Opens</label>
 			      <select class="form-control" id="openHour">
 							<option>1</option>
@@ -44,8 +47,8 @@ Main Form HTML
 			      <label for="openMinutes"><br></label>
 			      <select class="form-control" id="openMinutes">
 			        <option>: 00 AM</option>
-			        <option>: 30 AM</option>
-			        <option>: 45 AM</option>
+			        <!-- <option>: 30 AM</option>
+			        <option>: 45 AM</option> -->
 			      </select>
 			    </div>
 
@@ -70,55 +73,83 @@ Main Form HTML
 			      <label for="closeMinutes"><br></label>
 			      <select class="form-control" id="closeMinutes">
 			        <option>: 00 PM</option>
-			        <option>: 30 PM</option>
-			        <option>: 45 PM</option>
+			        <!-- <option>: 30 PM</option>
+			        <option>: 45 PM</option> -->
 			      </select>
 			    </div>
 
 					<fieldset class="form-group" style="min-width: 500px;">
 						Business Days Open: <br><br>
-			      <div class="form-check">
-			        <label class="form-check-label">
-			          <input class="form-check-input" type="checkbox" value="" checked="" id="Monday">
-			          Monday
-			        </label>
-			      </div>
-			      <div class="form-check disabled">
-			        <label class="form-check-label">
-			          <input class="form-check-input" type="checkbox" value="" checked="" id="Tuesday">
-			          Tuesday
-			        </label>
-			      </div>
-						<div class="form-check disabled">
-			        <label class="form-check-label">
-			          <input class="form-check-input" type="checkbox" value="" checked="" id="Wednesday">
-			          Wednesday
-			        </label>
-			      </div>
-						<div class="form-check disabled">
-			        <label class="form-check-label">
-			          <input class="form-check-input" type="checkbox" value="" checked="" id="Thursday">
-			          Thursday
-			        </label>
-			      </div>
-						<div class="form-check disabled">
-			        <label class="form-check-label">
-			          <input class="form-check-input" type="checkbox" value="" checked="" id="Friday">
-			          Friday
-			        </label>
-			      </div>
-						<div class="form-check disabled">
-			        <label class="form-check-label">
-			          <input class="form-check-input" type="checkbox" value="" checked="" id="Saturday">
-			          Saturday
-			        </label>
-			      </div>
-						<div class="form-check disabled">
-			        <label class="form-check-label">
-			          <input class="form-check-input" type="checkbox" value="" checked="" id="Sunday">
-			          Sunday
-			        </label>
-			      </div>
+							<div class="pretty p-svg p-curve">
+				        <input type="checkbox" value="" checked="" id="Monday"/>
+				        <div class="state p-primary">
+				            <!-- svg path -->
+				            <svg class="svg svg-icon" viewBox="0 0 20 20">
+				                <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path>
+				            </svg>
+				            <label>Monday</label>
+				        </div>
+	    				</div>
+							<div class="pretty p-svg p-curve">
+				        <input type="checkbox" value="" checked="" id="Tuesday"/>
+				        <div class="state p-primary">
+				            <!-- svg path -->
+				            <svg class="svg svg-icon" viewBox="0 0 20 20">
+				                <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path>
+				            </svg>
+				            <label>Tuesday</label>
+				        </div>
+	    				</div>
+							<div class="pretty p-svg p-curve">
+				        <input type="checkbox" value="" checked="" id="Wednesday"/>
+				        <div class="state p-primary">
+				            <!-- svg path -->
+				            <svg class="svg svg-icon" viewBox="0 0 20 20">
+				                <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path>
+				            </svg>
+				            <label>Wednesday</label>
+				        </div>
+	    				</div>
+							<div class="pretty p-svg p-curve">
+				        <input type="checkbox" value="" checked="" id="Thursday"/>
+				        <div class="state p-primary">
+				            <!-- svg path -->
+				            <svg class="svg svg-icon" viewBox="0 0 20 20">
+				                <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path>
+				            </svg>
+				            <label>Thursday</label>
+				        </div>
+	    				</div>
+							<div class="pretty p-svg p-curve">
+				        <input type="checkbox" value="" checked="" id="Friday"/>
+				        <div class="state p-primary">
+				            <!-- svg path -->
+				            <svg class="svg svg-icon" viewBox="0 0 20 20">
+				                <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path>
+				            </svg>
+				            <label>Friday</label>
+				        </div>
+	    				</div>
+							<div class="pretty p-svg p-curve">
+				        <input type="checkbox" value="" checked="" id="Saturday"/>
+				        <div class="state p-primary">
+				            <!-- svg path -->
+				            <svg class="svg svg-icon" viewBox="0 0 20 20">
+				                <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path>
+				            </svg>
+				            <label>Saturday</label>
+				        </div>
+	    				</div>
+							<div class="pretty p-svg p-curve">
+				        <input type="checkbox" value="" checked="" id="Sunday"/>
+				        <div class="state p-primary">
+				            <!-- svg path -->
+				            <svg class="svg svg-icon" viewBox="0 0 20 20">
+				                <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path>
+				            </svg>
+				            <label>Sunday</label>
+				        </div>
+	    				</div>
 			    </fieldset>
 
 					<div class="form-group" style="width:20%;">
