@@ -96,6 +96,7 @@ for (i=0;i<number;i++){
     container.appendChild(document.createElement("br"));
 }
 
+
 function submit() {
   var openHour = parseInt(document.getElementById("openHour").value);
   var openMinutes = document.getElementById("openMinutes").value;
@@ -279,6 +280,16 @@ function submit() {
   scheduleContainer.appendChild(button);
   scheduleContainer.appendChild(document.createElement("br"));
   scheduleContainer.appendChild(document.createElement("br"));
+
+  var button2 = document.createElement("input");
+  button2.type = "button";
+  button2.value = "GENERATE NEW";
+  button2.className = "btn btn-primary";
+  button2.onclick = function() {regen()}; // ADD FUNCTION HERE
+  button2.id = 'regenerate';
+  scheduleContainer.appendChild(button2);
+  scheduleContainer.appendChild(document.createElement("br"));
+  scheduleContainer.appendChild(document.createElement("br"));
 }
 
 function back(){
@@ -293,6 +304,15 @@ function back(){
   } else {
       formContainer.style.display = "unset";
   }
+}
+
+function regen(){
+  schedule = [];
+  var scheduleContainer = document.getElementById("schedule-container");
+  while (scheduleContainer.hasChildNodes()) {
+    scheduleContainer.removeChild(scheduleContainer.firstChild);
+  }
+  submit();
 }
 
 class ShiftNeed {
