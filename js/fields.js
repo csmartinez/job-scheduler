@@ -96,6 +96,7 @@ for (i=0;i<number;i++){
     container.appendChild(document.createElement("br"));
 }
 
+
 function submit() {
   var openHour = parseInt(document.getElementById("openHour").value);
   var openMinutes = document.getElementById("openMinutes").value;
