@@ -24,7 +24,6 @@ for (i=0;i<number;i++){
     // Append a node with a random text
     container.appendChild(document.createTextNode(" Employee Availability: "));
     container.appendChild(document.createElement("br"));
-    // Create an <input> element, set its type and name attributes
 
     var input = document.createElement("input");
     input.type = "checkbox";
