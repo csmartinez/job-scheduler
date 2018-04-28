@@ -201,7 +201,7 @@ function submit() {
   // }
 
   // Create a schedule which is a list of filled Shifts
-  var schedule = [];
+
   // Loops through the needsList for each day
   for(i = 0; i < openDays.length; i++) {
       var tempDay = openDays[i];
@@ -258,9 +258,29 @@ function submit() {
     }
     scheduleContainer.appendChild(document.createElement("br"));
   }
+  var button = document.createElement("input");
+  button.type = "button";
+  button.value = "BACK";
+  button.className = "btn btn-primary";
+  button.onclick = function() {back()}; // ADD FUNCTION HERE
+  scheduleContainer.appendChild(button);
+  scheduleContainer.appendChild(document.createElement("br"));
+  scheduleContainer.appendChild(document.createElement("br"));
 }
 
-
+function back(){
+  schedule = [];
+  var scheduleContainer = document.getElementById("schedule-container");
+  while (scheduleContainer.hasChildNodes()) {
+    scheduleContainer.removeChild(scheduleContainer.firstChild);
+  }
+  var formContainer = document.getElementById("form-container");
+  if (formContainer.style.display === "none") {
+      formContainer.style.display = "unset";
+  } else {
+      formContainer.style.display = "unset";
+  }
+}
 
 class ShiftNeed {
 
@@ -384,3 +404,5 @@ function runTest3() {
         + "\ngetEndTime(): " + newShiftNeed.getEndTime() + result2
         + "\ngetDayOfWeek(): " + newShiftNeed.getDayOfWeek() + result3);
 }
+
+var schedule = [];
