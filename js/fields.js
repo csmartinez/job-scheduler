@@ -296,6 +296,7 @@ function submit() {
   button.type = "button";
   button.value = "BACK";
   button.className = "btn btn-primary";
+  button.style = "color: white; background-color: gray;"
   button.onclick = function() {back()}; // ADD FUNCTION HERE
   scheduleContainer.appendChild(button);
   scheduleContainer.appendChild(document.createElement("br"));
