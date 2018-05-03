@@ -267,6 +267,8 @@ function submit() {
     weekCalendar.appendChild(h3);
     weekCalendar.appendChild(document.createElement("br"));
     weekCalendar.appendChild(document.createElement("br"));
+    var dayTime1 = "";
+    var dayTime2 = "";
 
     for (k = 0; k < schedule.length; k++) {
       if (tempDay == schedule[k].getDayOfWeek()) {
@@ -277,11 +279,18 @@ function submit() {
          var tempEndTime = schedule[k].getEndTime();
          if(tempStartTime > 12) {
            tempStartTime = tempStartTime - 12;
+           dayTime1 = "am";
+         } else {
+           dayTime1 = "pm";
          }
          if(tempEndTime > 12) {
            tempEndTime = tempEndTime - 12;
+           dayTime2 = "pm";
          }
-         var shiftText = document.createTextNode(schedule[k].getEmployee() + '  (' + tempStartTime + "am - " + tempEndTime + 'pm)');
+        if(tempEndTime < 12) {
+          dayTime2 = "am";
+        }
+         var shiftText = document.createTextNode(schedule[k].getEmployee() + '  (' + tempStartTime + dayTime1 + " - " + tempEndTime + dayTime2 + ")");
          weekCalendar.appendChild(shiftText);
          shiftElement.id = schedule[k].getDayOfWeek() + 'Shift' + count;
          weekCalendar.appendChild(shiftElement);
