@@ -279,15 +279,14 @@ function submit() {
          var tempEndTime = schedule[k].getEndTime();
          if(tempStartTime > 12) {
            tempStartTime = tempStartTime - 12;
-           dayTime1 = "am";
-         } else {
            dayTime1 = "pm";
+         } else {
+           dayTime1 = "am";
          }
          if(tempEndTime > 12) {
            tempEndTime = tempEndTime - 12;
            dayTime2 = "pm";
-         }
-        if(tempEndTime < 12) {
+         } else {
           dayTime2 = "am";
         }
          var shiftText = document.createTextNode(schedule[k].getEmployee() + '  (' + tempStartTime + dayTime1 + " - " + tempEndTime + dayTime2 + ")");
