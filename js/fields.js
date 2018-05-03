@@ -289,7 +289,7 @@ function submit() {
          } else {
           dayTime2 = "am";
         }
-         var shiftText = document.createTextNode(schedule[k].getEmployee() + '  (' + tempStartTime + dayTime1 + " - " + tempEndTime + dayTime2 + ")");
+         var shiftText = document.createTextNode(schedule[k].getEmployee() + '  (' + schedule[k].getStartTime() + " - " + schedule[k].getEndTime() + ")");
          weekCalendar.appendChild(shiftText);
          shiftElement.id = schedule[k].getDayOfWeek() + 'Shift' + count;
          weekCalendar.appendChild(shiftElement);
